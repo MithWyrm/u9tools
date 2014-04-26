@@ -40,29 +40,6 @@ Josef's U9Decode program at http://publish.uwo.ca/~jdrexler/ultima/
 
 
 
----------
-Changes
----------
-2000.01.26 - r4:
-
-* Added support for type 1 encoding, and a few other features, to u9snd.exe.  This
-  means that the music and the rest of the sound effects can be extracted (see 
-  "Credits" and "What's Included").
-
-
-2000.01.19 - r3:
-
-* Added export feature to u9bmp.exe, hit enter to dump to current image(s) to
-  .bmp files
-
-
-2000.01.15 - r2:
-
-* Added u9bmp.*, to view the images in the bitmap files (see "What's Included"
-  for further information).
-
-
-
                          -------------------------------
                           Message from Original Release
                          -------------------------------
