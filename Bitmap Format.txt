@@ -1,0 +1,40 @@
+When 'x' is used as an offset, it indicates that the data it references follows
+immediately after the previous data.
+
+
+ Ofs(h)       Len(h)    Format    Description
+----------------------------------------------------------------------------------
+     0            2     word      width
+     2            2     word      flags of some kind wrt width ??
+     4            2     word      height
+     6            2     word      flags of some kind wrt height ??
+     8            4     dword     number of frames = frm
+     C            3     ??        ??
+     F            1     byte      frm - 1
+    10         8frm     frmrec    offset/len for each frame as shown below
+
+
+
+frmrec:
+
+ Ofs(h)       Len(h)    Format    Description
+----------------------------------------------------------------------------------
+     0            4     dword     offset of frame from beginning of file
+     4            4     dword     length of frame in bytes
+
+
+
+frame:
+
+ Ofs(h)       Len(h)    Format    Description
+----------------------------------------------------------------------------------
+
+     0            4     byte      ??
+     4            4     dword     width
+     8            4     dword     height
+     C            8     ??        ??
+    14      4height     ?         table of 'height' 4-byte entries (offset table 
+                                  of some kind, probably for speed)
+     x        W.H.D     ??        bitmap data (paletted, 16-bit, or compressed
+                                  depending on file - sh, 16, and c respectively)
+     x            ?     ?         miniture copies of main bitmap (prob. mipmaps)?!?

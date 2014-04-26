@@ -1,0 +1,28 @@
+The format for the items in the texture8.* files is as follows:
+
+NB: len is the length of the item
+
+
+ Ofs(h)       Len(h)    Format    Description
+----------------------------------------------------------------------------------
+     0            4     dword     width
+     4            4     dword     height
+     8           ??      ??        ??
+len-wid*hei   wid*hei   data      image data, each byte indexes a palette entry
+                                  in ankh.pal
+
+
+
+ankh.pal:
+
+
+ Ofs(h)       Len(h)    Format    Description
+----------------------------------------------------------------------------------
+     0        256*4     dword     256 dwords, each containing rgb information
+                                  for a palette entry as follows:
+
+  3                     2                     1
+1 0 9 8 7 6 5 4 | 3 2 1 0 9 8 7 6 | 5 4 3 2 1 0 9 8 | 7 6 5 4 3 2 1 0
+                |       red       |     green       |      blue
+
+Note that the colour values use all 8 bits.

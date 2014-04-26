@@ -1,0 +1,35 @@
+The FLX format is used to glob lots of data files into one big file.
+No provision is made to store names of files, so they must be indexed
+by number (although another file probably provides a name to number
+lookup).  There is a possibility that the user of this format does
+not want the first data item in the file to be item 0, so there may
+be provision for this in the header.  I doubt this is the case tho,
+as at least one of the files has blank directory entries in the first
+few slots, presumably to effect this.
+
+Multi-byte integer formats are little-endian.
+
+
+Header format:
+
+ Ofs(h)    Len(h)    Format    Description
+----------------------------------------------------------------------------------
+     0        4C     text      copyright information (?), blanked out
+    4C         4     dword     ?? initial item number ??
+    50         4     dword     number of entries = n
+    54         4     dword     ?? initial item number ?? version number ??
+    58         4     dword     total file size
+    5C         4     dword     total file size (?)
+    60        20      ??       ??
+    80        8n     dir.      list of directory entries
+     x         x     data      actual data
+
+
+
+Directory entry format:
+
+ Ofs(h)    Len(h)    Format    Description
+----------------------------------------------------------------------------------
+     0         4     dword     offset of data (from beginning of file)
+     4         4     dword     length of data
+

@@ -1,0 +1,16 @@
+The format for items in books-en.flx is as follows.  This format is
+more than likely also used for the other languages as well.
+
+
+
+ Ofs(h)       Len(h)    Format    Description
+------------------------------------------------------------------------------------------
+     0            4     dword     title string length = tlen
+     4         tlen     asciiz    (id number): (book title)
+4+tlen            4     dword     text string length = xlen
+8+tlen         xlen     ascii     body of book text (note that this is /not/
+                                  zero terminated).  The backquote character
+                                  (`) is used as an escape to change the 
+                                  formatting.  It can be followed by:
+                                      p   - new paragraph?
+                                      f?  - change font (? is one character in '1' - '5')

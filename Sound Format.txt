@@ -1,0 +1,24 @@
+used for sfx.flx, music.flx, speech.flx, maybe others.
+
+format of the type 1 encoding was determined by Josef Drexler.  His U9Decode program 
+can be retrived from http://publish.uwo.ca/~jdrexler/ultima/
+
+
+
+ Ofs(h)       Len(h)    Format    Description
+------------------------------------------------------------------------------------------
+     0            4     dword     id number
+     4           20     asciiz    description
+    24            4     ?         ? probably more description
+    28            4     dword     sample data length = len
+    2C            4     dword     frequency
+    30            4     dword     bits per sample (?)
+    34            4     dword     num channels (?)
+    38            4     dword     encoding method:
+                                     0 = PCM (ie. no compression/encoding)
+                                     1 = form of ADPCM, look at the code ;)
+                                     2 = ?? - used by speech
+    3C          len     x         sample data
+
+
+  
